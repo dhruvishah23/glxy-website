@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './components/pages/Home';
+import Galaxies from './components/pages/Galaxies';
+import Stars from './components/pages/Stars';
+import Gallery from './components/pages/Gallery';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path='/' exact component={Home} />
+       <Route path='/galaxies' component={Galaxies} />
+        <Route path='/stars' component={Stars} />
+        <Route path='/gallery' component={Gallery} />
+        <Footer />
+      </Switch>
+    </Router>
+  </>
   );
 }
 
